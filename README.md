@@ -1,5 +1,7 @@
 # Laravel Clean Architecture Starter
 
+🚧 Project under active development (Day 1 of a 10-day Laravel clean architecture plan)
+
 This project demonstrates how I structure Laravel applications for long-term
 maintainability, scalability, and team collaboration.
 
@@ -11,7 +13,7 @@ maintainability, scalability, and team collaboration.
 ## Tech Stack
 - PHP 8.3+
 - Laravel 12
-- PostgreSQL
+- MySQL / PostgreSQL
 - PHPUnit / Pest (planned)
 
 ## Architecture Philosophy
@@ -24,9 +26,18 @@ This project follows a layered approach inspired by Clean Architecture:
 
 The goal is clarity over cleverness and explicit design over magic.
 
-## Getting Started and clean
+## Architecture Structure
+
+This project is structured using a layered approach inspired by Clean Architecture:
+
+- **Domain**: Core business rules and entities
+- **Application**: Use cases and application services
+- **Infrastructure**: Framework and external concerns (DB, queues, etc.)
+
+The HTTP layer is treated as an input/output boundary only.
+
+## Getting Started
 ```bash
 composer install
 php artisan key:generate
 php artisan serve
-
