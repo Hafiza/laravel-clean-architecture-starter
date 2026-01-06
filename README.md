@@ -10,8 +10,8 @@ maintainability, scalability, and team collaboration.
 
 ## Tech Stack
 - PHP 8.3+
-- Laravel 11
-- MySQL / PostgreSQL
+- Laravel 12
+- PostgreSQL
 - PHPUnit / Pest (planned)
 
 ## Architecture Philosophy
