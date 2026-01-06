@@ -24,8 +24,9 @@ This project follows a layered approach inspired by Clean Architecture:
 
 The goal is clarity over cleverness and explicit design over magic.
 
-## Getting Started
+## Getting Started and clean
 ```bash
 composer install
 php artisan key:generate
 php artisan serve
+
