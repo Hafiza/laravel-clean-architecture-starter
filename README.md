@@ -1,6 +1,6 @@
 # Laravel Clean Architecture Starter
 
-🚧 Project under active development (Day 2 of a 10-day Laravel clean architecture plan)
+🚧 Project under active development (Day 5 of a 10-day Laravel clean architecture plan)
 
 This repository demonstrates how I structure Laravel applications for long-term
 maintainability, scalability, and team collaboration, following clean architecture
@@ -54,6 +54,10 @@ This approach keeps responsibilities clear as the codebase grows.
 - HTTP boundary design
 - DTO-based data flow
 - Authorization at request level
+- Use case driven application logic
+- Repository abstraction
+- Explicit dependency wiring
+
 
 
 ## Getting Started
