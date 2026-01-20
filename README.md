@@ -1,6 +1,6 @@
 # Laravel Clean Architecture Starter
 
-🚧 Project under active development (Day 5 of a 10-day Laravel clean architecture plan)
+🚧 Project under active development (Day 6 of a 10-day Laravel clean architecture plan)
 
 This repository demonstrates how I structure Laravel applications for long-term
 maintainability, scalability, and team collaboration, following clean architecture
@@ -26,6 +26,7 @@ This is not a CRUD demo. It is a **reference architecture**.
 - PHP 8.3+
 - Laravel 12
 - MySQL / PostgreSQL
+- SQLite (local testing)
 - PHPUnit / Pest (planned)
 - Docker (planned)
 
@@ -34,29 +35,58 @@ This is not a CRUD demo. It is a **reference architecture**.
 ## Architecture Philosophy
 
 This project follows a layered structure inspired by Clean Architecture, while staying
-pragmatic and aligned with Lara
-layered approach inspired by Clean Architecture:
+pragmatic and aligned with Laravel conventions.
 
-- **Domain**: Core business rules and entities
-- **Application**: Use cases and application services
-- **Infrastructure**: Framework and external concerns (DB, queues, etc.)
+### Layers Overview
 
-The HTTP layer is treated as an input/output boundary only.
+- **Domain**  
+  Core business rules, entities, policies, and contracts.  
+  This layer is framework-agnostic and contains no HTTP or database logic.
 
-## Domain Design
+- **Application**  
+  Use cases and application-level workflows.  
+  Coordinates domain logic and enforces business rules.
 
-The first domain introduced in this project is the **User domain**.
-It owns all user-related business rules, policies, and data contracts.
+- **Infrastructure**  
+  Framework-specific concerns such as database persistence, queues, and external services.
 
-This approach keeps responsibilities clear as the codebase grows.
+- **HTTP Layer**  
+  Controllers and requests act strictly as input/output boundaries.
 
-### Current Focus
-- HTTP boundary design
-- DTO-based data flow
-- Authorization at request level
-- Use case driven application logic
-- Repository abstraction
-- Explicit dependency wiring
+The goal is **explicit design over magic** and **clarity over cleverness**.
+
+---
+
+## Architecture Structure
+
+```text
+app/
+├── Domain/
+│   └── User/
+│       ├── Data/
+│       ├── Policies/
+│       │   └── UserPolicy.php
+│       └── Repositories/
+│           └── UserRepositoryInterface.php
+├── Application/
+│   └── User/
+│       ├── DTOs/
+│       │   └── CreateUserDTO.php
+│       └── Handlers/
+│           └── CreateUserHandler.php
+├── Infrastructure/
+│   └── User/
+│       └── Persistence/
+│           └── EloquentUserRepository.php
+├── Http/
+│   ├── Controllers/
+│   │   └── Api/
+│   │       └── UserController.php
+│   └── Requests/
+│       └── User/
+│           └── StoreUserRequest.php
+└── Providers/
+    └── DomainServiceProvider.php
 
 
 
