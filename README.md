@@ -1,6 +1,6 @@
 # Laravel Clean Architecture Starter
 
-🚧 Project under active development (Day 6 of a 10-day Laravel clean architecture plan)
+🚧 Project under active development (Day 7 of a 10-day Laravel clean architecture plan)
 
 This repository demonstrates how I structure Laravel applications for long-term
 maintainability, scalability, and team collaboration, following clean architecture
@@ -25,9 +25,9 @@ This is not a CRUD demo. It is a **reference architecture**.
 
 - PHP 8.3+
 - Laravel 12
-- MySQL / PostgreSQL
-- SQLite (local testing)
-- PHPUnit / Pest (planned)
+- MySQL / PostgreSQL (production-ready)
+- SQLite (isolated testing)
+- PHPUnit / Pest
 - Docker (planned)
 
 ---
@@ -40,20 +40,20 @@ pragmatic and aligned with Laravel conventions.
 ### Layers Overview
 
 - **Domain**  
-  Core business rules, entities, policies, and contracts.  
-  This layer is framework-agnostic and contains no HTTP or database logic.
+  Core business rules, policies, and contracts.  
+  Framework-agnostic and independent from HTTP or persistence concerns.
 
 - **Application**  
-  Use cases and application-level workflows.  
-  Coordinates domain logic and enforces business rules.
+  Use cases and application workflows.  
+  Orchestrates domain logic and enforces business rules.
 
 - **Infrastructure**  
-  Framework-specific concerns such as database persistence, queues, and external services.
+  Database persistence and framework-specific implementations.
 
 - **HTTP Layer**  
-  Controllers and requests act strictly as input/output boundaries.
+  Controllers and requests acting strictly as input/output boundaries.
 
-The goal is **explicit design over magic** and **clarity over cleverness**.
+The guiding principle is **explicit design over magic**.
 
 ---
 
@@ -87,11 +87,3 @@ app/
 │           └── StoreUserRequest.php
 └── Providers/
     └── DomainServiceProvider.php
-
-
-
-## Getting Started
-```bash
-composer install
-php artisan key:generate
-php artisan serve
