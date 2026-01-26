@@ -1,6 +1,6 @@
 # Laravel Clean Architecture Starter
 
-🚧 Project under active development (Day 7 of a 10-day Laravel clean architecture plan)
+🚧 Project under active development (Day 8 of a 10-day Laravel clean architecture plan)
 
 This repository demonstrates how I structure Laravel applications for long-term
 maintainability, scalability, and team collaboration, following clean architecture
@@ -87,3 +87,7 @@ app/
 │           └── StoreUserRequest.php
 └── Providers/
     └── DomainServiceProvider.php
+
+## Domain Design
+The User domain represents the core business concepts and rules related to users,
+independent of how those users are stored, displayed, or transported.

@@ -9,15 +9,12 @@ use App\Domain\User\Models\User;
 final class CreateUserHandler
 {
     public function __construct(
-        private UserRepositoryInterface $users
+        private UserRepositoryInterface $repository
     ) {}
 
-    public function handle(CreateUserDTO $dto): User
+    public function handle(CreateUserDTO $dto): void
     {
-        return $this->users->create([
-            'name'     => $dto->name,
-            'email'    => $dto->email,
-            'password' => $dto->hashedPassword,
-        ]);
+        $this->repository->create($dto);
     }
 }
+
